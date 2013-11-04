@@ -70,20 +70,20 @@ public class RGIClassifier {
     public void makeInstance() {
             // Create the attributes, class and text
             List<String> fvNominalVal = new ArrayList<String>(2);
-            fvNominalVal.add("positive");
-            fvNominalVal.add("negative");
-            Attribute attribute1 = new Attribute("class", fvNominalVal);
-            Attribute attribute2 = new Attribute("text",(ArrayList<String>) null);
+            fvNominalVal.add("pos");
+            fvNominalVal.add("neg");
+            Attribute attribute1 = new Attribute("text",(ArrayList<String>) null);
+            Attribute attribute2 = new Attribute("class", fvNominalVal);
             // Create list of instances with one element
             List<Attribute> fvWekaAttributes = new ArrayList<Attribute>(2);
             fvWekaAttributes.add(attribute1);
             fvWekaAttributes.add(attribute2);
             instances = new Instances("Test relation", (ArrayList<Attribute>) fvWekaAttributes, 1);
             // Set class index
-            instances.setClassIndex(0);
+            instances.setClassIndex(1);
             // Create and add the instance
             DenseInstance instance = new DenseInstance(2);
-            instance.setValue(attribute2, text);
+            instance.setValue(attribute1, text);
             // Another way to do it:
             // instance.setValue((Attribute)fvWekaAttributes.elementAt(1), text);
             instances.add(instance);

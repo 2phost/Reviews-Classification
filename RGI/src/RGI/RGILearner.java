@@ -75,9 +75,9 @@ public class RGILearner {
      */
     public void evaluate() {
             try {
-                    trainData.setClassIndex(0);
+                    trainData.setClassIndex(1);
                     filter = new StringToWordVector();
-                    filter.setAttributeIndices("last");
+                    filter.setAttributeIndices("first");
                     classifier = new FilteredClassifier();
                     classifier.setFilter(filter);
                     classifier.setClassifier(new NaiveBayes());
@@ -97,15 +97,15 @@ public class RGILearner {
      */
     public void learn() {
             try {
-                    trainData.setClassIndex(0);
+                    trainData.setClassIndex(1);
                     filter = new StringToWordVector();
-                    filter.setAttributeIndices("last");
+                    filter.setAttributeIndices("first");
                     classifier = new FilteredClassifier();
                     classifier.setFilter(filter);
                     classifier.setClassifier(new NaiveBayes());
                     classifier.buildClassifier(trainData);
                     // Uncomment to see the classifier
-                    System.out.println(classifier);
+                    //System.out.println(classifier);
                     System.out.println("===== Training on filtered (training) dataset done =====");
             }
             catch (Exception e) {
