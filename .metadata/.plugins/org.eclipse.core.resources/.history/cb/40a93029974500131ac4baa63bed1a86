@@ -74,7 +74,7 @@ public class RGILearner {
      * trained classifiers can lead to unexpected results.
      */
     public void evaluate() {
-            try {
+           // try {
                     trainData.setClassIndex(0);
                     filter = new StringToWordVector();
                     filter.setAttributeIndices("last");
@@ -86,10 +86,10 @@ public class RGILearner {
                     System.out.println(eval.toSummaryString());
                     System.out.println(eval.toClassDetailsString());
                     System.out.println("===== Evaluating on filtered (training) dataset done =====");
-            }
+           /* }
             catch (Exception e) {
                     System.out.println("Problem found when evaluating");
-            }
+            }*/
     }
     
     /**

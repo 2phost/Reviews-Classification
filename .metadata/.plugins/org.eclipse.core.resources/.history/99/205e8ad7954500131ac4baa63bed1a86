@@ -105,7 +105,7 @@ public class RGILearner {
                     classifier.setClassifier(new NaiveBayes());
                     classifier.buildClassifier(trainData);
                     // Uncomment to see the classifier
-                    System.out.println(classifier);
+                    // System.out.println(classifier);
                     System.out.println("===== Training on filtered (training) dataset done =====");
             }
             catch (Exception e) {
