@@ -5,10 +5,11 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import weka.classifiers.meta.FilteredClassifier;
 import weka.core.Attribute;
-import weka.core.FastVector;
 import weka.core.Instances;
 import weka.core.DenseInstance;
 
@@ -68,16 +69,16 @@ public class RGIClassifier {
      */
     public void makeInstance() {
             // Create the attributes, class and text
-            FastVector<String> fvNominalVal = new FastVector(2);
-            fvNominalVal.addElement("spam");
-            fvNominalVal.addElement("ham");
+            List<String> fvNominalVal = new ArrayList<String>(2);
+            fvNominalVal.add("positive");
+            fvNominalVal.add("negative");
             Attribute attribute1 = new Attribute("class", fvNominalVal);
-            Attribute attribute2 = new Attribute("text",(FastVector) null);
+            Attribute attribute2 = new Attribute("text",(ArrayList<String>) null);
             // Create list of instances with one element
-            FastVector fvWekaAttributes = new FastVector(2);
-            fvWekaAttributes.addElement(attribute1);
-            fvWekaAttributes.addElement(attribute2);
-            instances = new Instances("Test relation", fvWekaAttributes, 1);
+            List<Attribute> fvWekaAttributes = new ArrayList<Attribute>(2);
+            fvWekaAttributes.add(attribute1);
+            fvWekaAttributes.add(attribute2);
+            instances = new Instances("Test relation", (ArrayList<Attribute>) fvWekaAttributes, 1);
             // Set class index
             instances.setClassIndex(0);
             // Create and add the instance
