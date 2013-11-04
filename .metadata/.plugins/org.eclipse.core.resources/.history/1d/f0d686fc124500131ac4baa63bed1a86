@@ -1,0 +1,38 @@
+package RGI;
+
+import weka.core.Attribute;
+import weka.core.FastVector;
+import weka.core.Instance;
+import weka.core.Instances;
+
+public class RGI {
+
+	public static void main(String[] args) {
+		
+		/* Type of attributes */
+		Attribute word = new Attribute("Word", (FastVector) null);
+		
+		FastVector attributes = new FastVector();
+		attributes.addElement(word);
+		Instances data = new Instances("Doc Data", attributes, 0);
+		
+		/* Adding Data */
+		/* DOC 1 */
+		double[] doc1 = new double[data.numAttributes()];
+		doc1[0] = data.attribute(0).addStringValue("no");
+		/* DOC 2 */
+		double[] doc2 = new double[data.numAttributes()];
+		doc2[0] = data.attribute(0).addStringValue("yes");
+		
+		/* Finaly */
+		Instance inst1 = new Instance(1, doc1);
+		Instance inst2 = new Instance(1, doc2);
+		
+		data.add(inst1);
+		data.add(inst2);
+		
+				
+		
+	}
+
+}

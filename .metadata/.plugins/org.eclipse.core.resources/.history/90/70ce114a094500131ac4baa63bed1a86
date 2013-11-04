@@ -1,0 +1,14 @@
+package RGI;
+
+import weka.core.Attribute;
+
+public class RGI {
+
+	public static void main(String[] args) {
+		Attribute word = new Attribute("Word", null);
+		
+		
+		
+	}
+
+}

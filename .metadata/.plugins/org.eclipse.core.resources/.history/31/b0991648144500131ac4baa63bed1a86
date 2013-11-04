@@ -1,0 +1,46 @@
+package RGI;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+import weka.core.Attribute;
+import weka.core.FastVector;
+import weka.core.Instance;
+import weka.core.Instances;
+
+public class RGIClassifier {
+	
+	/**
+     * String that stores the text to classify
+     */
+    String text;
+
+	 /**
+     * This method loads the text to be classified.
+     * @param fileName The name of the file that stores the text.
+     */
+    public void load(String fileName) {
+    	try{
+    		BufferedReader reader = new BufferedReader(new FileReader(fileName));
+    		String line;
+    		text = " ";
+    		while ((line = reader.readLine()) != null){
+    			text = text + " " + line;
+    		}
+    	}
+    }
+	
+	
+	public static void main(String[] args) {
+		RGIClassifier classifier;
+		if (args.length < 2)
+            System.out.println("Usage: java RGIClassifier <fileData> <fileModel>");
+		else {
+			classifier = new RGIClassifier();
+			classifier.load(args[0]);
+		}
+		
+		
+	}
+
+}

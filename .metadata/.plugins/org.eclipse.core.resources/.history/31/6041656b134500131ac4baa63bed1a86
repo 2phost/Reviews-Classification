@@ -1,0 +1,21 @@
+package RGI;
+
+import weka.core.Attribute;
+import weka.core.FastVector;
+import weka.core.Instance;
+import weka.core.Instances;
+
+public class RGIClassifier {
+
+	public static void main(String[] args) {
+		RGIClassifier classifier;
+		if (args.length < 2)
+            System.out.println("Usage: java MyClassifier <fileData> <fileModel>");
+		else {
+			
+		}
+		
+		
+	}
+
+}
