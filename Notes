@@ -1,0 +1,13 @@
+Convert to ARFF Format and others:
+http://jmgomezhidalgo.blogspot.com.es/2013/06/baseline-sentiment-analysis-with-weka.html
+
+Implementation Examples:
+https://github.com/jmgomezh/tmweka/blob/master/FilteredClassifier/MyFilteredLearner.java
+https://github.com/jmgomezh/tmweka/blob/master/FilteredClassifier/MyFilteredClassifier.java
+
+Others:
+https://github.com/jmgomezh/tmweka/tree/master/OpinionMining
+http://www.esp.uem.es/jmgomez/tmweka/
+http://weka.wikispaces.com/Use+WEKA+in+your+Java+code
+http://weka.wikispaces.com/Programmatic+Use
+http://jmgomezhidalgo.blogspot.com.es/2013/04/a-simple-text-classifier-in-java-with.html
