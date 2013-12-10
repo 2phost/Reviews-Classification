@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import weka.classifiers.meta.FilteredClassifier;
 import weka.core.Attribute;
@@ -38,12 +39,29 @@ public class RGIClassifier {
     		String line;
     		text = " ";
     		while ((line = reader.readLine()) != null){
-    			text = text + " " + line;
+    			text = text + " " + line.toLowerCase();
     		}
     		reader.close();
     	} catch (IOException e) {
     		System.out.println("Problem reading the file");
     	}
+    	
+    	/* Join words as not good to notgood */
+    	String text2 = " ";
+    	String ch;
+    	StringTokenizer st = new StringTokenizer(text);
+    	while (st.hasMoreTokens()){
+    		ch = st.nextToken();
+    		if(ch.equals("not") && st.hasMoreTokens()){
+    			text2 = text2 + " not" + st.nextToken();
+    			continue;
+    		}
+    		text2 = text2 + " " + ch;
+    	}
+    	text = text2;
+    	
+    	System.out.println(text);
+    	
     }
 	
     /**

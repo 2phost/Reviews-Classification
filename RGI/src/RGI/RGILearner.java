@@ -5,7 +5,9 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.StringReader;
 import java.util.Random;
+import java.util.StringTokenizer;
 
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
@@ -56,12 +58,33 @@ public class RGILearner {
      * @param fileName The name of the file that stores the dataset.
      */
     public void loadDataset(String fileName) {
-            try {
-                    BufferedReader reader = new BufferedReader(new FileReader(fileName));
-                    ArffReader arff = new ArffReader(reader);
-                    trainData = arff.getData();
-                    System.out.println("===== Loaded dataset: " + fileName + " =====");
-                    reader.close();
+    	try{
+    		BufferedReader reader2 = new BufferedReader(new FileReader(fileName));
+    		String line;
+    		String text = "";
+    		String ch;
+    		while ((line = reader2.readLine()) != null){
+    			StringTokenizer st = new StringTokenizer(line);
+    			while (st.hasMoreTokens()){
+    				ch = st.nextToken();
+    				if(ch.equals("not") && st.hasMoreTokens()){
+            			text = text  + " not" + st.nextToken();
+            			continue;
+            		}
+    				text = text + " " + ch.toLowerCase();
+    			}
+    			
+    			text = text + "\n";
+    		}
+    		reader2.close();
+    		System.out.println(text);
+    		
+            //BufferedReader reader = new BufferedReader(new FileReader(fileName));
+            BufferedReader reader = new BufferedReader(new StringReader(text));
+            ArffReader arff = new ArffReader(reader);
+            trainData = arff.getData();
+            System.out.println("===== Loaded dataset: " + fileName + " =====");
+            reader.close();
             }
             catch (IOException e) {
                     System.out.println("Problem found when reading: " + fileName);
